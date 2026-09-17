@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Plus_Jakarta_Sans } from "next/font/google";
+import { Geist_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin"],
 });
 
@@ -12,24 +12,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Byte & Bite — Every Byte Serves a Bite",
+  title: "Byte & Bite — Bikin Kuliner Sepi Jadi Antrean Ramai",
   description:
-    "Agensi pemasaran digital khusus UMKM kuliner. Content Creation, Social Media Management, dan Website/Landing Page dalam satu alur terintegrasi. Terjangkau, profesional, terukur.",
+    "Partner pertumbuhan UMKM FnB: content creation, social media management, dan website siap order. Konsultasi pertama gratis.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="id"
-      className={`${geistSans.variable} ${geistMono.variable} ${jakarta.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col font-sans">{children}</body>
+    <html lang="id" className={`${jakarta.variable} ${geistMono.variable} h-full antialiased`}>
+      <body className="flex min-h-full flex-col font-sans">{children}</body>
     </html>
   );
 }

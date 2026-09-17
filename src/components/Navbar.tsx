@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import Logo from "./Logo";
+import { waLink, WA_DEFAULT_MSG } from "@/lib/whatsapp";
 
 const links = [
   { href: "#layanan", label: "Layanan" },
-  { href: "#keunggulan", label: "Keunggulan" },
+  { href: "#alur-kerja", label: "Alur Kerja" },
   { href: "#portofolio", label: "Portofolio" },
   { href: "#tim", label: "Tim" },
 ];
@@ -14,15 +15,15 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-100 bg-white/90 backdrop-blur">
-      <nav className="mx-auto flex h-[90px] max-w-6xl items-center justify-between px-4 sm:px-6">
-        <Logo />
-        <ul className="hidden items-center gap-7 md:flex">
+    <header className="sticky top-0 z-50 border-b border-zinc-200/60 bg-[#fbfaf7]/90 backdrop-blur">
+      <nav className="mx-auto flex h-20 max-w-6xl items-center justify-between px-4 sm:px-6">
+        <Logo className="h-14" />
+        <ul className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
-                className="text-sm font-semibold text-zinc-600 transition-colors hover:text-foreground"
+                className="text-sm font-semibold text-zinc-600 transition-colors hover:text-zinc-900"
               >
                 {l.label}
               </a>
@@ -30,15 +31,17 @@ export default function Navbar() {
           ))}
           <li>
             <a
-              href="#kontak"
-              className="rounded-lg bg-bite-red px-5 py-2.5 text-sm font-bold text-white shadow-sm shadow-bite-red/30 transition-all hover:-translate-y-0.5 hover:bg-bite-red-dark"
+              href={waLink(WA_DEFAULT_MSG)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full bg-bite-red px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-bite-red-dark"
             >
-              Kontak
+              Konsultasi Gratis
             </a>
           </li>
         </ul>
         <button
-          className="md:hidden"
+          className="p-2 text-zinc-700 md:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-label="Menu"
         >
@@ -48,14 +51,14 @@ export default function Navbar() {
         </button>
       </nav>
       {open && (
-        <div className="border-t border-zinc-100 bg-white md:hidden">
+        <div className="border-t border-zinc-200/60 bg-[#fbfaf7] md:hidden">
           <ul className="flex flex-col px-4 py-4">
             {links.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="block py-2 text-sm font-semibold text-zinc-600"
+                  className="block py-2.5 text-sm font-semibold text-zinc-600"
                 >
                   {l.label}
                 </a>
@@ -63,11 +66,12 @@ export default function Navbar() {
             ))}
             <li>
               <a
-                href="#kontak"
-                onClick={() => setOpen(false)}
-                className="mt-2 block rounded-lg bg-bite-red px-5 py-2.5 text-center text-sm font-bold text-white"
+                href={waLink(WA_DEFAULT_MSG)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 block rounded-full bg-bite-red px-5 py-2.5 text-center text-sm font-bold text-white"
               >
-                Kontak
+                Konsultasi Gratis
               </a>
             </li>
           </ul>

@@ -2,48 +2,45 @@ import SectionHeading from "./SectionHeading";
 
 const items = [
   {
-    category: "Content Creation",
-    img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80",
-    imgAlt: "Kopi latte art",
-    title: "Feed IG yang bikin orang berhenti scroll",
-    desc: "Visual konsisten + caption berkarakter. Klien mulai dilihat sebagai brand, bukan cuma warung yang jualan.",
-    result: "3.2× engagement",
-    resultColor: "text-emerald-600 bg-emerald-500/10",
-    points: ["Moodboard & palet visual", "30 konten per bulan", "Template feed siap pakai"],
+    tag: "Content Creation",
+    stat: "3.2× engagement",
+    img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=85",
+    alt: "Racikan kopi latte art",
+    title: "Feed kafe yang bikin orang berhenti scroll",
+    desc: "Visual konsisten dan copywriting berkarakter mengubah profil dari sekadar warung kopi menjadi brand yang terpercaya.",
+    points: ["Shooting menu & ambience", "30 konten siap tayang/bulan", "Template feed konsisten"],
   },
   {
-    category: "Social Media Management",
-    img: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&q=80",
-    imgAlt: "Suasana kafe",
-    title: "Akun dari sepi jadi selalu ada yang nanya",
-    desc: "Jadwal posting terjaga, DM dibales cepat, review direspons. Kafe jadi keliatan hidup meski lagi jarang buka.",
-    result: "+480 followers/3 bln",
-    resultColor: "text-byte-blue bg-byte-blue/10",
-    points: ["Kalender editorial", "Community management", "Laporan bulanan jelas"],
+    tag: "Social Media Management",
+    stat: "+480 followers / 3 bln",
+    img: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=85",
+    alt: "Suasana dalam kafe",
+    title: "Akun yang dari ramai sampai selalu ada yang nanya",
+    desc: "Jadwal tayang terjaga, DM dibalas cepat, dan profil terus dikelola sehingga calon pelanggan merasa aman untuk datang.",
+    points: ["Kalender konten auto terjadwal", "Balasan DM & komen saat jam kerja", "Laporan bulanan yang mudah dibaca"],
   },
   {
-    category: "Website & Landing Page",
-    img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80",
-    imgAlt: "Makanan hot bowl",
-    title: "Landing page yang muter jadi order",
-    desc: "Menu digital + tombol WA langsung. Calon pelanggan nggak perlu bolak-balik nanya 'menu apa aja?'.",
-    result: "7 hari launching",
-    resultColor: "text-emerald-600 bg-emerald-500/10",
-    points: ["Mobile-first, cepat", "Menu digital + WA order", "SEO lokal / Maps terpasang"],
+    tag: "Website & Digital Menu",
+    stat: "7 hari siap tayang",
+    img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=85",
+    alt: "Sajian masakan hot bowl",
+    title: "Menu digital yang langsung mengarah ke order",
+    desc: "Calon pembeli cukup memindai menu digital, memilih menu favorit, dan memesan via WhatsApp tanpa menunggu lama.",
+    points: ["Menu digital mobile-first", "Tombol pesan langsung WhatsApp", "Terindeks cepat di Google & Maps"],
   },
 ];
 
 export default function Portfolio() {
   return (
-    <section id="portofolio" className="bg-white py-20 sm:py-28">
+    <section id="portofolio" className="bg-[#fbfaf7] py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
+        <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <SectionHeading
-            eyebrow="Hasil Kerja"
-            title="Bukan cuma deliverable — hasil"
-            desc="Contoh format kerja setiap layanan. Portofolio klien lengkap kami tampilkan saat konsultasi."
+            eyebrow="Contoh Hasil Kerja"
+            title="Kelihatan profesional, dampaknya terukur"
+            desc="Ringkasan simulasi hasil dari proses kerja kami. Detail studi kasus dan klien lengkap bisa dibahas saat konsultasi."
           />
-          <span className="hidden rounded-full bg-zinc-100 px-4 py-2 text-xs font-bold text-zinc-600 md:inline-block">
+          <span className="hidden rounded-full border border-zinc-200 bg-white px-4 py-2 text-xs font-semibold text-zinc-600 md:inline-block">
             Case study menyusul
           </span>
         </div>
@@ -52,50 +49,47 @@ export default function Portfolio() {
           {items.map((it) => (
             <article
               key={it.title}
-              className="group flex flex-col overflow-hidden rounded-3xl bg-[#fbfbfa] ring-1 ring-zinc-200/60 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-black/5"
+              className="flex flex-col overflow-hidden rounded-3xl border border-zinc-200 bg-white transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-black/5"
             >
-              {/* Visual header */}
               <div className="relative h-48 overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={it.img}
-                  alt={it.imgAlt}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  alt={it.alt}
+                  className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                 />
-                <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[11px] font-extrabold text-zinc-800 shadow-sm backdrop-blur">
-                  {it.category}
+                <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-bold text-zinc-800 backdrop-blur-sm">
+                  {it.tag}
                 </span>
-                <span className={`absolute right-4 top-4 rounded-full px-3 py-1 text-[11px] font-extrabold backdrop-blur ${it.resultColor}`}>
-                  {it.result}
+                <span className="absolute right-4 top-4 rounded-full bg-zinc-900/80 px-3 py-1 text-xs font-bold text-white backdrop-blur-sm">
+                  {it.stat}
                 </span>
               </div>
 
               <div className="flex flex-1 flex-col p-7">
-                <h3 className="text-lg font-extrabold leading-snug tracking-tight text-zinc-900">
+                <h3 className="text-lg font-bold leading-snug tracking-tight text-zinc-900">
                   {it.title}
                 </h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-zinc-500">{it.desc}</p>
+                <p className="mt-2.5 text-sm leading-relaxed text-zinc-600">
+                  {it.desc}
+                </p>
 
-                <ul className="mt-5 space-y-2">
+                <ul className="mt-5 space-y-2.5">
                   {it.points.map((p) => (
-                    <li key={p} className="flex items-center gap-2.5 text-xs font-semibold text-zinc-700">
-                      <svg viewBox="0 0 16 16" fill="currentColor" className="h-3.5 w-3.5 shrink-0 text-byte-blue">
-                        <path fillRule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clipRule="evenodd" />
-                      </svg>
+                    <li key={p} className="flex items-center gap-2.5 text-xs font-medium text-zinc-700">
+                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-bite-red" />
                       {p}
                     </li>
                   ))}
                 </ul>
 
                 <div className="mt-auto pt-6">
-                  <a
-                    href="#kontak"
-                    className="inline-flex items-center gap-1.5 text-xs font-extrabold text-zinc-800 underline decoration-zinc-300 underline-offset-4 transition-colors hover:text-bite-red hover:decoration-bite-red"
-                  >
+                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-zinc-800">
                     Minta dokumentasi lengkap
                     <svg viewBox="0 0 16 16" fill="currentColor" className="h-3 w-3">
                       <path d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06Z" />
                     </svg>
-                  </a>
+                  </span>
                 </div>
               </div>
             </article>
